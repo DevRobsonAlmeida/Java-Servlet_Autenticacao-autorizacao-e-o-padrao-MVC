@@ -5,7 +5,6 @@
  */
 package br.com.alura.empresa.acao;
 
-import br.com.alura.empresa.acao.Inicializador;
 import br.com.alura.empresa.modelo.Banco;
 import br.com.alura.empresa.modelo.Empresa;
 import java.io.IOException;

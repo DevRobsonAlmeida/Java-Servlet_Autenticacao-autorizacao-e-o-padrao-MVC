@@ -29,7 +29,6 @@ public class RemovaEmpresa extends Inicializador{
         banco.removeEmpresa(id);
 
 //        response.sendRedirect("entrada?acao=listaEmpresas");
-        return ;
     }
 
 }

@@ -7,6 +7,7 @@ package br.com.alura.empresa.servlet;
 
 import br.com.alura.empresa.acao.NovaEmpresa;
 import br.com.alura.empresa.acao.AlterarEmpresa;
+import br.com.alura.empresa.acao.CadastrarEmpresa;
 import br.com.alura.empresa.acao.MostrarEmpresa;
 import br.com.alura.empresa.acao.Inicializador;
 import br.com.alura.empresa.acao.ListaEmpresa;
@@ -31,7 +32,9 @@ public class UnicaEntradaServlet extends HttpServlet {
        
         String page = null;
 
-        if(paramAcao.equals("novaEmpresa")){
+        if(paramAcao.equals("cadastrarEmpresa")){
+            acao = new CadastrarEmpresa();
+        } else if(paramAcao.equals("novaEmpresa")){
             acao = new NovaEmpresa();
         } else if (paramAcao.equals("listaEmpresas")) {
             acao = new ListaEmpresa();
@@ -41,13 +44,14 @@ public class UnicaEntradaServlet extends HttpServlet {
             acao = new MostrarEmpresa();
         } else if (paramAcao.contains("alteraEmprsa")) {
             acao = new AlterarEmpresa();
-        }
+        }  
         
         acao.execute(request, response);
         
         String[] pagina = acao.getPage().split(":");
+        String caminhoWeb = "WEB-INF/view/";
         if (pagina[0].equals("forward")) {   
-        RequestDispatcher rd = request.getRequestDispatcher(pagina[1]);
+        RequestDispatcher rd = request.getRequestDispatcher(caminhoWeb.concat(pagina[1]));
         rd.forward(request, response);
         } else {
         response.sendRedirect(pagina[1]);
