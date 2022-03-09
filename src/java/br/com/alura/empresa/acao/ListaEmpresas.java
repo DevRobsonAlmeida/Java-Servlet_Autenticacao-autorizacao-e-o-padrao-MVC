@@ -9,8 +9,8 @@ import br.com.alura.empresa.modelo.Banco;
 import br.com.alura.empresa.modelo.Empresa;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,11 +19,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author robson-pc
  */
-public class ListaEmpresa extends Inicializador{
+public class ListaEmpresas extends Acao{
 
     List<Empresa> lista = new ArrayList<>();
 
-    public ListaEmpresa() {
+    public ListaEmpresas() {
         super("forward:listaEmpresas.jsp");
     }
     
@@ -32,7 +32,15 @@ public class ListaEmpresa extends Inicializador{
             Banco banco = new Banco();
             lista = banco.getEmpresas();
             
-            request.setAttribute("empresas", lista);
+            lista.sort((o1, o2) -> {
+              
+                int NameCompare = o1.getNome().compareTo(o2.getNome());
+                int DateCompare = o1.getDataAbertura().compareTo(o2.getDataAbertura());
+                
+                return (NameCompare == 0) ?   DateCompare
+                                            : NameCompare; 
+            });
+            request.setAttribute("empresas", lista );
     }
 
 }

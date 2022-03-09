@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author robson-pc
  */
-public class RemovaEmpresa extends Inicializador{
+public class RemoveEmpresa extends Acao{
 
-    public RemovaEmpresa() {
-        super("redirect:entrada?acao=listaEmpresas");
+    public RemoveEmpresa() {
+        super("redirect:entrada?acao=ListaEmpresas");
     }
 
     @Override

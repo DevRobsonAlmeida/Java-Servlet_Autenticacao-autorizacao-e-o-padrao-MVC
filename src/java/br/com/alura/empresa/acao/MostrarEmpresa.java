@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author robson-pc
  */
-public class MostrarEmpresa extends Inicializador {
+public class MostrarEmpresa extends Acao {
 
     public MostrarEmpresa() {
         super("forward:formAlterarEmpresa.jsp");

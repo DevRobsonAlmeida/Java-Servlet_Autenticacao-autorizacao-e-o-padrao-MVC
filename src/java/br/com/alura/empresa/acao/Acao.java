@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author robson-pc
  */
-public abstract class Inicializador {
+public abstract class Acao {
    
     protected String page;
 
-    public Inicializador(String page) {
+    public Acao(String page) {
         this.page = page;
     }
 

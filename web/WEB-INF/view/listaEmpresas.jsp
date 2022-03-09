@@ -3,7 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<c:url value="/entrada?acao=cadastrarEmpresa" var="cadastroEmpresa" />
+<c:url value="/entrada?acao=CadastrarEmpresa" var="cadastroEmpresa" />
 
 <!DOCTYPE html>
 <html>
@@ -18,8 +18,8 @@
             <c:forEach items="${empresas}" var="empresa">
                 <li>
                     ${empresa.nome} - <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy" />  
-                    <a href="/empresa/entrada?acao=mostrarEmpresa&id=${empresa.id}"><button>Editar</button></a>
-                    <a href="/empresa/entrada?acao=removeEmpresa&id=${empresa.id}" ><button>Remover</Button></a>
+                    <a href="/empresa/entrada?acao=MostrarEmpresa&id=${empresa.id}"><button>Editar</button></a>
+                    <a href="/empresa/entrada?acao=RemoveEmpresa&id=${empresa.id}" ><button>Remover</Button></a>
                 </li>
             </c:forEach>
         </ul>

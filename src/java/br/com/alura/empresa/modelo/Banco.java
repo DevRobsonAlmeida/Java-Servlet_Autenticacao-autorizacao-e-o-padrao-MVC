@@ -32,7 +32,8 @@ public class Banco {
     public Empresa consultarId(Integer id) {
         return Banco.lista.stream()
                 .filter(c -> c.getId() == id)
-                .collect(Collectors.toList())
+                .sorted((o1, o2) -> o1.getNome().compareTo(o2.getNome()))
+                .collect(Collectors.toList())                
                 .get(0);
     }
 

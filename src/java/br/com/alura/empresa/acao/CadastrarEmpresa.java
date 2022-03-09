@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author robson-pc
  */
-public class CadastrarEmpresa extends Inicializador {
+public class CadastrarEmpresa extends Acao {
 
     public CadastrarEmpresa() {
         super("forward:formNovaEmpresa.jsp");

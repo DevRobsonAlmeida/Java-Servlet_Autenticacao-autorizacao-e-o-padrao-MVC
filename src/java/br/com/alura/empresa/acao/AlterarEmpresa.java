@@ -20,10 +20,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author robson-pc
  */
-public class AlterarEmpresa extends Inicializador {
+public class AlterarEmpresa extends Acao {
 
     public AlterarEmpresa() {
-        super("redirect:entrada?acao=listaEmpresas");
+        super("redirect:entrada?acao=ListaEmpresas");
     }
 
     @Override

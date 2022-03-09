@@ -20,10 +20,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author robson-pc
  */
-public class NovaEmpresa extends Inicializador {
+public class NovaEmpresa extends Acao {
 
     public NovaEmpresa() {
-        super("redirect:entrada?acao=listaEmpresas");
+        super("redirect:entrada?acao=ListaEmpresas");
     }
     
     @Override
