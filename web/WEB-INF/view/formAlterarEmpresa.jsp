@@ -7,9 +7,11 @@
         <title>Editar Dados da Empresa</title>
     </head>
     <body>
+        <c:import url="logout-parcial.jsp" />
+        
         <form action="${linkServletNovaEmpresa}" method="post">
             Nome: <input type="text" name="nome" value="${empresa.nome}" />
-            Data abertura :  <input type="text" name="data" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${empresa.dataAbertura}" />" />
+            Data abertura :  <input type="text" name="data" value="<fmt:formatDate pattern="dd/MM/yyyy" value="${empresa.dataAbertura}" /> " />
             <input type="hidden" name="id" value="${empresa.id}" />
             <input type="hidden" name="acao" value="AlterarEmpresa" />
             <input type="submit" value="Salvar"/>

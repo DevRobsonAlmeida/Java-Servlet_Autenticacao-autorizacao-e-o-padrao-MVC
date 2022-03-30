@@ -6,8 +6,11 @@
         <title>Cadastro da Empresa</title>
     </head>
     <body>
+        
+        <c:import url="logout-parcial.jsp" />
+        
         <form action="${linkServletNovaEmpresa}" method="post">
-
+            
             Nome: <input type="text" name="nome"  />
             Data abertura : <input type="text" name="data" />
             <input type="hidden" name="acao" value="NovaEmpresa" />

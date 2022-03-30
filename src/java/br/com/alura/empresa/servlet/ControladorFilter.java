@@ -7,32 +7,29 @@ package br.com.alura.empresa.servlet;
 
 import br.com.alura.empresa.acao.Acao;
 import java.io.IOException;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author robson-pc
+ * @author Robson
  */
-public class UnicaEntradaServlet extends HttpServlet {
+public class ControladorFilter implements Filter {
 
-    protected void service(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+    public void doFilter(ServletRequest ServletRequest, ServletResponse ServletResponse,
+            FilterChain chain)
+            throws IOException, ServletException {
+
+        HttpServletRequest request = (HttpServletRequest) ServletRequest;
+        HttpServletResponse response = (HttpServletResponse) ServletResponse;
+
         String paramAcao = request.getParameter("acao");
-
-//        HttpSession session = request.getSession();
-//        boolean usuarioNaoLogado = (session.getAttribute("usuarioLogado") == null);
-//        boolean acaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));
-//
-//        if (usuarioNaoLogado && acaoProtegida) {
-//            response.sendRedirect("entrada?acao=LoginForm");
-//            return;
-//        }
 
         String nomeDaClasse = "br.com.alura.empresa.acao." + paramAcao;
         String[] pagina = null;

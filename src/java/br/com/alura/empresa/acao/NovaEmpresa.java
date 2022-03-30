@@ -21,10 +21,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author robson-pc
  */
 public class NovaEmpresa extends Acao {
-
-    public NovaEmpresa() {
-        super("redirect:entrada?acao=ListaEmpresas");
-    }
     
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,6 +56,11 @@ public class NovaEmpresa extends Acao {
 
 //    return ;
 
+    }
+
+    @Override
+    public String page() {
+        return "redirect:entrada?acao=ListaEmpresas";
     }
 
 }

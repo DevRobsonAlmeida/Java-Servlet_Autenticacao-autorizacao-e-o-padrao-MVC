@@ -2,66 +2,51 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <!--Tela que iniciarar após executar-->
     <welcome-file-list>
-        <welcome-file>listaEmpresa.jsp</welcome-file>
+        <welcome-file>view/formLogin.jsp</welcome-file>
     </welcome-file-list>
-    
     <!-- Tempo de Acesso -->
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
-    
-    <!--Servlet  Direction-->
-    <servlet>
+
+
+<!--    <servlet>
         <servlet-name>UnicaEntradaServlet</servlet-name>
         <servlet-class>br.com.alura.empresa.servlet.UnicaEntradaServlet</servlet-class>
     </servlet>
-<!--    <servlet>
-        <servlet-name>RemoveEmpresaServlet</servlet-name>
-        <servlet-class>br.com.alura.empresa.servlet.RemoveEmpresaServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>MostrarEmpresaServlet</servlet-name>
-        <servlet-class>br.com.alura.empresa.servlet.MostarEmpresaServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ListaEmpresaServlet</servlet-name>
-        <servlet-class>br.com.alura.empresa.servlet.ListaEmpresasServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>NovaEmpresaServlet</servlet-name>
-        <servlet-class>br.com.alura.empresa.servlet.NovaEmpresaServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AlterarEmpresaServlet</servlet-name>
-        <servlet-class>br.com.alura.empresa.servlet.AlteraEmpresaServlet</servlet-class>
-    </servlet>-->
-    
-    <!--Servlet Map-->
     <servlet-mapping>
         <servlet-name>UnicaEntradaServlet</servlet-name>
         <url-pattern>/entrada</url-pattern>
-    </servlet-mapping>
-<!--    <servlet-mapping>
-        <servlet-name>RemoveEmpresaServlet</servlet-name>
-        <url-pattern>/removeEmpresa</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MostrarEmpresaServlet</servlet-name>
-        <url-pattern>/mostrarEmpresa</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListaEmpresaServlet</servlet-name>
-        <url-pattern>/listaEmpresas</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NovaEmpresaServlet</servlet-name>
-        <url-pattern>/novaEmpresa</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AlterarEmpresaServlet</servlet-name>
-        <url-pattern>/alterarEmpresa</url-pattern>
     </servlet-mapping>-->
+    
+    
+    <filter>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <filter-class>br.com.alura.empresa.servlet.AutorizacaoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <url-pattern>/entrada</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>MonitoramentoFilter</filter-name>
+        <filter-class>br.com.alura.empresa.servlet.MonitoramentoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>MonitoramentoFilter</filter-name>
+        <url-pattern>/entrada</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>ControladorFilter</filter-name>
+        <filter-class>br.com.alura.empresa.servlet.ControladorFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ControladorFilter</filter-name>
+        <url-pattern>/entrada</url-pattern>
+    </filter-mapping>
+
 </web-app>

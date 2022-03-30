@@ -14,19 +14,18 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author robson-pc
  */
-public abstract class Acao {
-    
-    public String getPage() {
-        return page(); 
+public class LoginForm extends Acao{
+
+    @Override
+    public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+    }
+
+    @Override
+    public String page() {
+        return "forward:formLogin.jsp";
     }
     
-    public abstract String page();
-    
-    public abstract void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
-
-
-    
-
     
     
 }

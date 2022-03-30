@@ -15,14 +15,15 @@ import javax.servlet.http.HttpServletResponse;
  * @author robson-pc
  */
 public class CadastrarEmpresa extends Acao {
-
-    public CadastrarEmpresa() {
-        super("forward:formNovaEmpresa.jsp");
-    }
     
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+    }
+
+    @Override
+    public String page() {
+       return "forward:formNovaEmpresa.jsp";
     }
 
 }

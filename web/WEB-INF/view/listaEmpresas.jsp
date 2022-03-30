@@ -12,6 +12,10 @@
         <title>Lista de Empresas</title>
     </head>
     <body>
+        
+        <p>Usuario Logado : ${usuarioLogado.login}</p>
+        <c:import url="logout-parcial.jsp" />
+        
         <h3> Lista de empresas </h3> 
         <a href="${cadastroEmpresa}"><button> Cadastrar Empresa </button></a>
         <ul>

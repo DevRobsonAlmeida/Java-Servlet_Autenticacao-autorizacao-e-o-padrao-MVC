@@ -16,10 +16,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class RemoveEmpresa extends Acao{
 
-    public RemoveEmpresa() {
-        super("redirect:entrada?acao=ListaEmpresas");
-    }
-
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String paramId = request.getParameter("id");
@@ -29,6 +25,11 @@ public class RemoveEmpresa extends Acao{
         banco.removeEmpresa(id);
 
 //        response.sendRedirect("entrada?acao=listaEmpresas");
+    }
+
+    @Override
+    public String page() {
+       return "redirect:entrada?acao=ListaEmpresas";
     }
 
 }

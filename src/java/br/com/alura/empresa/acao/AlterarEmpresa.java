@@ -22,9 +22,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class AlterarEmpresa extends Acao {
 
-    public AlterarEmpresa() {
-        super("redirect:entrada?acao=ListaEmpresas");
-    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,16 +32,19 @@ public class AlterarEmpresa extends Acao {
             empresa.setId(Integer.valueOf(request.getParameter("id")));
             Banco banco = new Banco();
 
-            empresa = banco.consultarId(empresa.getId());
+            empresa = banco.consultarEmpresaId(empresa.getId());
             empresa.setNome(request.getParameter("nome"));
             empresa.setDataAbertura(sdf.parse(request.getParameter("data")));
-
-//            response.sendRedirect("");
 
         } catch (ParseException ex) {
             Logger.getLogger(AlterarEmpresa.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    @Override
+    public String page() {
+        return "redirect:entrada?acao=ListaEmpresas";
     }
 
 }

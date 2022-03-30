@@ -23,13 +23,13 @@ public class ListaEmpresas extends Acao{
 
     List<Empresa> lista = new ArrayList<>();
 
-    public ListaEmpresas() {
-        super("forward:listaEmpresas.jsp");
-    }
     
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            Banco banco = new Banco();
+    
+        
+
+        Banco banco = new Banco();
             lista = banco.getEmpresas();
             
             lista.sort((o1, o2) -> {
@@ -41,6 +41,17 @@ public class ListaEmpresas extends Acao{
                                             : NameCompare; 
             });
             request.setAttribute("empresas", lista );
+            
+        
+            
     }
+    
+    
+    @Override
+    public String page() {
+       return "forward:listaEmpresas.jsp";
+    }
+    
+    
 
 }
